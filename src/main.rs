@@ -10,9 +10,11 @@ fn main() {
             let mut ip_addr = String::new();
             let mut file_path = String::new();
             io::stdin().read_line(&mut ip_addr).unwrap();
+            ip_addr.truncate(ip_addr.len() - 1);
             io::stdout().write("file name: ".as_bytes()).unwrap();
             io::stdout().flush().unwrap();
             io::stdin().read_line(&mut file_path).unwrap();
+            file_path.truncate(file_path.len() - 1);
             send_file(&(ip_addr + ":1234"), &file_path);
         },
         _ => {}
